@@ -3,11 +3,7 @@
 }
 /* Card is the div which wraps all other div which holds news details  */
 
-<<<<<<< HEAD
 .card {
-=======
-.Card {
->>>>>>> 9a70d3a7451e0dc6341c8eb53c956005e0d1e9f3
   width: 60%;
   margin: 0 auto;
   margin-top: 1%;
@@ -151,11 +147,7 @@ img {
 }
 
 @media only screen and (max-width: 1350px) {
-<<<<<<< HEAD
   .card {
-=======
-  .Card {
->>>>>>> 9a70d3a7451e0dc6341c8eb53c956005e0d1e9f3
     width: 90%;
     margin: 0 auto;
     margin-top: 5%;
@@ -190,11 +182,7 @@ img {
 }
 
 @media only screen and (max-width: 760px) {
-<<<<<<< HEAD
   .card {
-=======
-  .Card {
->>>>>>> 9a70d3a7451e0dc6341c8eb53c956005e0d1e9f3
     width: 86%;
     margin: 0 auto;
     margin-top: 5%;

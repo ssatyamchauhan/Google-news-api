@@ -1,10 +1,6 @@
 import { Layout, Spin } from 'antd';
 import fetch from 'isomorphic-unfetch';
 import InfiniteScroll from 'react-infinite-scroller';
-<<<<<<< HEAD
-=======
-import '../style/newsfeed.css'
->>>>>>> 9a70d3a7451e0dc6341c8eb53c956005e0d1e9f3
 import TimeAgo from 'react-timeago'
 import englishString from 'react-timeago/lib/language-strings/en'
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
@@ -23,11 +19,7 @@ const Index = (props) => {
   const jsx = news.map((news, ind) => {
     let author = (news.author) ? news.author + " -     " : "Google News -      "
     return (
-<<<<<<< HEAD
       <div className="card" key={ind}>
-=======
-      <div className="Card" key={ind}>
->>>>>>> 9a70d3a7451e0dc6341c8eb53c956005e0d1e9f3
         <div className="content">
           <div>
             <article>
