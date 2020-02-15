@@ -19,32 +19,34 @@ const Index = (props) => {
   const jsx = news.map((news, ind) => {
     let author = (news.author) ? news.author + " -     " : "Google News -      "
     return (
-      <div className="card" key={ind}>
-        <div className="content">
-          <div>
-            <article>
-              <div className="first-div">
-                <div className="img">
-                  <img src={news.urlToImage} alt="Low Internet Connectivity" />
-                </div>
-                <div className="img-details">
-                  <div className="details">
-                    <div className="news-name">
-                      <h1>{news.title}</h1>
-                    </div>
-                    <a href={news.url} target="_blank"><div>{news.description}</div></a>
-                    <div className="news-place">
-                      {author}
-                      <TimeAgo className="time" date={news.publishedAt} formatter={formatter} />
+      <a href={news.url} target="_blank">
+        <div className="card" key={ind}>
+          <div className="content">
+            <div>
+              <article>
+                <div className="first-div">
+                  <div className="img">
+                    <img src={news.urlToImage} alt="Low Internet Connectivity" />
+                  </div>
+                  <div className="img-details">
+                    <div className="details">
+                      <div className="news-name">
+                        <h1>{news.title}</h1>
+                      </div>
+                      <div className="news-description">{news.description || "Wants to visit to the full news description"}</div>
+                      <div className="news-place">
+                        {author}
+                        <TimeAgo className="time" date={news.publishedAt} formatter={formatter} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="divider div-transparent"></div>
-            </article>
+                <div className="divider div-transparent"></div>
+              </article>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     )
   })
 
@@ -71,7 +73,7 @@ const Index = (props) => {
   return (
     <div>
       <Layout>
-      <Header className="header"><h1>News Api</h1></Header>
+        <Header className="header"><h1>News Api</h1></Header>
       </Layout>
       {overallNews}
     </div>
