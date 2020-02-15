@@ -2,24 +2,22 @@ import { Layout, Spin } from 'antd';
 import fetch from 'isomorphic-unfetch';
 import InfiniteScroll from 'react-infinite-scroller';
 import TimeAgo from 'react-timeago'
-import englishString from 'react-timeago/lib/language-strings/en'
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 import React from 'react'
 const { Header } = Layout;
-
 
 const Index = (props) => {
 
   const [news, setNews] = React.useState(props.news)
   const [totalNews, setTotalNews] = React.useState(20)
   const [isLoad, setIsLoad] = React.useState(true)
-  const formatter = buildFormatter(englishString)
+  
+
 
   // in your react component
   const jsx = news.map((news, ind) => {
     let author = (news.author) ? news.author + " -     " : "Google News -      "
     return (
-      <a href={news.url} target="_blank">
+      <a href={news.url} target="_blank" key={ind}>
         <div className="card" key={ind}>
           <div className="content">
             <div>
@@ -36,7 +34,7 @@ const Index = (props) => {
                       <div className="news-description">{news.description || "Wants to visit to the full news description"}</div>
                       <div className="news-place">
                         {author}
-                        <TimeAgo className="time" date={news.publishedAt} formatter={formatter} />
+                        <TimeAgo className="time" date={news.publishedAt} />
                       </div>
                     </div>
                   </div>
@@ -57,9 +55,7 @@ const Index = (props) => {
     const total = totalNews + 10;
     setTotalNews(total)
     setNews(data.articles)
-    if (totalNews >= 70) {
-      setIsLoad(false)
-    }
+    if (totalNews >= 70) setIsLoad(false)
   }
 
   const overallNews = <InfiniteScroll
@@ -73,11 +69,10 @@ const Index = (props) => {
   return (
     <div>
       <Layout>
-        <Header className="header"><h1>News Api</h1></Header>
+        <Header className="header">News Api</Header>
       </Layout>
       {overallNews}
     </div>
-
   )
 }
 
